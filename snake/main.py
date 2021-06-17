@@ -18,7 +18,8 @@ screen.onkey(key='Up', fun=snake.up)
 screen.onkey(key='Down', fun=snake.down)
 screen.onkey(key='Left', fun=snake.left)
 screen.onkey(key='Right', fun=snake.right)
-
+#screen.onkey(key = 'y', fun = play_again)
+#screen.onkey(key = 'n', fun = quit)
 game_is_on = True
 while game_is_on:
     screen.update()
@@ -29,12 +30,14 @@ while game_is_on:
         snake.extend()
         scoreboard.increase_score()
     if snake.head.xcor() > 245 or snake.head.xcor() < -245 or snake.head.ycor() > 245 or snake.head.ycor() < -245:
-        scoreboard.gameover()
-        game_is_on = False
+        #scoreboard.gameover()
+        scoreboard.reset()
+        snake.reset()
     for fragment in snake.snake_body[1:]:
-        if snake.head.distance(fragment) < 4:
-            game_is_on = False
-            scoreboard.gameover()
+        if snake.head.distance(fragment) < 4:  
+           # scoreboard.gameover()
+            scoreboard.reset()
+            snake.reset()
 
 
 

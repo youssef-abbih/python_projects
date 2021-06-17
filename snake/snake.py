@@ -19,7 +19,7 @@ class Snake:
         snake = Turtle()
         snake.shape('square')
         snake.shapesize(stretch_len = 0.25,stretch_wid = 0.25)
-        snake.color('red')
+        snake.color('black')
         snake.penup()
         snake.goto(index)
         self.snake_body.append(snake)
@@ -32,7 +32,13 @@ class Snake:
             new_y = self.snake_body[snake_index-1].ycor()
             self.snake_body[snake_index].goto(new_x,new_y)
         self.head.fd(5)
-
+    def reset(self):
+        for fragment in self.snake_body:
+            fragment.goto(1000,1000)
+        self.snake_body.clear()
+        self.create_snake()
+        self.head = self.snake_body[0]
+        self.taim = self.snake_body[-1]
 
     def up(self):
        if self.head.heading() != DOWN:
@@ -46,5 +52,4 @@ class Snake:
     def right(self):
        if self.head.heading() != LEFT:
            self.head.setheading(RIGHT)
-
 
