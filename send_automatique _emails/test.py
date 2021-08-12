@@ -18,6 +18,6 @@ hour = now.hour
 minute = now.minute
 second = now.second
 birth_day = dt.datetime(year = 1995, month = 6, day = 20)
-print(now)
+#print(now)
 print(day_of_week)
-print(birth_day)
+#print(birth_day)
